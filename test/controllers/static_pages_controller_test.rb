@@ -4,10 +4,10 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
 
 
   def setup
-    @base_title = "| Microposts Application"
+    @base_title = " | Microposts Application"
   end
 
-  
+
 
   test "should get root" do
     get root_url
