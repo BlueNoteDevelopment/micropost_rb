@@ -1,5 +1,7 @@
 module ApplicationHelper
 
+
+
 def full_title(page_title='')
   base_title = " | Microposts Application"
   if page_title.empty?
