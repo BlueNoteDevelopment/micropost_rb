@@ -7,9 +7,11 @@ This is the sample application for
 Learn Web Development with Rails*](http://www.railstutorial.org/)
 by [Michael Hartl](http://www.michaelhartl.com/).
 
-#Goals
-Learn Rails
+#Notes
+Bcrypt-ruby does not have the correct .so file for this version of ruby
+flow instructions at https://stackoverflow.com/questions/29293321/ruby-on-windows-causes-error-cannot-load-such-file-bcrypt-ext/33593911#33593911
 
+copy bcrypt_ext.so to C:\RailsInstaller\Ruby2.3.0\lib\ruby\gems\2.3.0\gems\bcrypt-3.1.11-x86-mingw32\lib
 
 ## License
 

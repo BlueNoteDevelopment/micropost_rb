@@ -3,7 +3,8 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
 
 def setup
-  @user = User.new(name: "Example User", email:"user@example.com", alias:"Example")
+  @user = User.new(name: "Example User", email:"user@example.com", alias:"Example",
+    password:"P@ssword1",password_confirmation:"P@ssword1" )
 end
 
   test "should user is valid" do
@@ -20,9 +21,14 @@ end
     assert_not @user.valid?
   end
 
-  test "alias should be present" do
+  test "alias should be name if not present" do
     @user.alias = nil
-    assert_not @user.valid?
+
+    if @user.valid?
+        Rails::logger.debug "Alias is" + @user.alias
+    end
+
+    assert @user.valid?
   end
   test "alias should not be too short" do
     @user.alias = "a" * 4
@@ -97,4 +103,13 @@ end
     assert_equal mixed_case_email.downcase, @user.reload.email
   end
 
+  test "password should be present (nonblank)" do
+    @user.password = @user.password_confirmation = " " * 6
+    assert_not @user.valid?
+  end
+
+  test "password should have a minimum length" do
+    @user.password = @user.password_confirmation = "a" * 5
+    assert_not @user.valid?
+  end
 end
