@@ -1,0 +1,13 @@
+<% if @user.errors.any? %>
+
+<div id="error_messages">
+    <div class="alert alert-danger">
+        You done f**ked up! <%=pluralize(@user.errors.count, "Error")  %> reported:
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+    </div>
+</div>
+<% end %>
