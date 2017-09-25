@@ -8,7 +8,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    #  debugger
+    begin
+      @user = User.find(params[:id])
+    rescue ActiveRecord::RecordNotFound => e
+        @user=nil
+        @message = "Error locating record"
+        render "user_err"
+        return
+    end
     #debugger
   end
 
