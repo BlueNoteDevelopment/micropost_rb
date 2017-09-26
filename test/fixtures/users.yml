@@ -1,1 +1,5 @@
-#Empty
+seth:
+  name: Seth Mitchell
+  alias: Seth Monster
+  email: seth@example.com
+  password_digest: <%= User.digest('password') %>
