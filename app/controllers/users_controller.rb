@@ -31,6 +31,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)    # Not the final implementation!
     if @user.save
       login @user
+      remember @user
       flash[:success] = "User account created.  Welcome to Microposts"
       # Handle a successful save.
       redirect_to @user
